@@ -1,4 +1,5 @@
 export enum Modules {
+    Admission = "admission",
     Enrollment = "enrollment",
     Performance = "performance",
     Final_Result = "final-result",

@@ -68,7 +68,13 @@ const transferSchema = z.object({
     statusOptions: z.array(transferStatusOptionSchema)
 });
 
+const admissionSchema = z.object({
+    enabled: z.boolean().optional(),
+    addmissionDate: z.string().optional()
+});
+
 export const studentDataStore = z.object({
+    admission: admissionSchema.optional(),
     attendance: attendanceSchema,
     defaults: defaultsSchema,
     filters: filtersSchema,
