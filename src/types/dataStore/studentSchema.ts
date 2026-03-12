@@ -70,7 +70,7 @@ const transferSchema = z.object({
 
 const admissionSchema = z.object({
     enabled: z.boolean().optional(),
-    addmissionDate: z.string().optional()
+    admissionDate: z.string().optional()
 });
 
 export const studentDataStore = z.object({
