@@ -71,7 +71,8 @@ const transferSchema = z.object({
 const admissionSchema = z.object({
     enabled: z.boolean().optional(),
     admissionDate: z.string().optional(),
-    studentIdentifier: z.string().optional()
+    studentIdentifier: z.string().optional(),
+    replaceIdentifierYearPrefix: z.boolean().optional()
 });
 
 export const studentDataStore = z.object({
