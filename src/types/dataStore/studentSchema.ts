@@ -72,6 +72,7 @@ const admissionSchema = z.object({
     enabled: z.boolean().optional(),
     admissionDate: z.string().optional(),
     studentIdentifier: z.string().optional(),
+    academicYearAttribute: z.string().optional(),
     replaceIdentifierYearPrefix: z.boolean().optional()
 });
 
