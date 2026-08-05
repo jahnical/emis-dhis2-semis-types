@@ -36,10 +36,57 @@ const finalResultSchema = z.object({
     status: z.string()
 });
 
+const performanceSubjectMappingSchema = z.object({
+    scoreDataElement: z.string(),
+    gradeDataElement: z.string(),
+    universal: z.boolean().optional()
+});
+
+const performanceGradeRangeSchema = z.object({
+    optionCode: z.string(),
+    minScore: z.number(),
+    maxScore: z.number()
+});
+
+const performanceGradeMappingSchema = z.object({
+    gradeOptionSet: z.string(),
+    ranges: z.array(performanceGradeRangeSchema)
+});
+
+const termRemarkRangeSchema = z.object({
+    optionCode: z.string(),
+    minPercentage: z.number(),
+    maxPercentage: z.number()
+});
+
+const termRemarksMappingSchema = z.object({
+    dataElement: z.string(),
+    optionSet: z.string(),
+    ranges: z.array(termRemarkRangeSchema)
+});
+
+const standardGroupSchema = z.object({
+    optionCode: z.string(),
+    standards: z.array(z.string()),
+    subjects: z.array(z.string())
+});
+
+const standardGroupMappingSchema = z.object({
+    standardGroupOptionSet: z.string(),
+    groups: z.array(standardGroupSchema)
+});
+
 const performanceSchema = z.object({
+    enabled: z.boolean().optional(),
+    lastUpdate: z.string().optional(),
     programStages: z.array(z.object({
         programStage: z.string()
-    }))
+    })),
+    subjects: z.array(performanceSubjectMappingSchema).optional(),
+    gradeMapping: performanceGradeMappingSchema.optional(),
+    maxSubjectScore: z.number().optional(),
+    termRemarksMapping: termRemarksMappingSchema.optional(),
+    standardGroupMapping: standardGroupMappingSchema.optional()
 });
 
 const registrationSchema = z.object({
