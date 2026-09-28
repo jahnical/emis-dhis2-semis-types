@@ -2,7 +2,7 @@ import { VariablesTypes, CustomAttributeProps, OptionsProps } from "./types/vari
 import { Attribute } from "./types/generated/models"
 import { ProgramConfig } from './types/programConfig/ProgramConfig'
 import { GroupFormProps, FormProps } from './types/form/GroupFormProps'
-import { DataStoreProps, selectedDataStoreKey, dataStoreSchema } from './types/dataStore/DataStoreConfig'
+import { DataStoreProps, selectedDataStoreKey, dataStoreSchema, sectionDataStoreSchema, StudentDataStore, StaffDataStore, SectionDataStore, SectionType, DataStoreFor } from './types/dataStore/DataStoreConfig'
 import { ProgramStageConfig, programStageDataElements } from "./types/programStageConfig/ProgramStageConfig"
 import { FormatResponseRowsProps, RowsDataProps } from './types/common/FormatRowsDataProps'
 import { EnrollmentStatus } from "./types/api/WithRegistrationTypes"
@@ -38,10 +38,18 @@ export type {
     ProgramStageConfig,
     programStageDataElements,
     selectedDataStoreKey,
+    StudentDataStore,
+    StaffDataStore,
+    SectionDataStore,
+    SectionType,
+    DataStoreFor,
     FormatResponseRowsProps,
     RowsDataProps,
     SchoolCalendarType,
     D2I18n
 }
 
-export { dataStoreSchema }
+export { dataStoreSchema, sectionDataStoreSchema }
+
+export { sectionProfiles, getSectionProfile } from './types/section/sectionProfile'
+export type { SectionProfile } from './types/section/sectionProfile'

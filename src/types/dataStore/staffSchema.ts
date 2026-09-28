@@ -73,7 +73,7 @@ export const staffDataStore = z.object({
     attendance: attendanceSchema,
     defaults: defaultsSchema,
     filters: filtersSchema,
-    key: z.string(),
+    key: z.literal("staff"),
     "final-result": finalResultSchema.optional(),
     lastUpdate: z.string(),
     performance: performanceSchema.optional(),
