@@ -42,6 +42,8 @@ export interface CustomAttributeProps {
     class?: string
     initialOptions?: any
     radio?: boolean
+    // Table header can be clicked to sort by this column (defaults to true when the table is sortable)
+    sortable?: boolean
 }
 
 export interface OptionsProps {
