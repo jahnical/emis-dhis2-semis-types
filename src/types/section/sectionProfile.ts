@@ -8,12 +8,17 @@ export interface SectionProfile {
     enrollFromAdmission: boolean
     // Attendance can only be recorded inside the calendar's class periods, not just the academic year
     attendanceWithinClassPeriods: boolean
+    // Attendance waits for every filter (e.g. grade and class) before listing anyone
+    attendanceRequiresAllFilters: boolean
     // An enrollment in the same academic year only counts if it is at the selected school
     enrollmentCheckScopedToSchool: boolean
     // Promotion / re-enrollment lets the user pick the destination organisation unit
     promotionChoosesOrgUnit: boolean
     // Promotion skips entities already registered in the target academic year
     promotionSkipsExistingYear: boolean
+    // Re-enrollment copies each person's current record forward, with per-row review,
+    // instead of applying one shared form to everyone selected
+    reEnrollByCarryForward: boolean
 }
 
 export const sectionProfiles: Record<SectionType, SectionProfile> = {
@@ -21,17 +26,21 @@ export const sectionProfiles: Record<SectionType, SectionProfile> = {
         key: "student",
         enrollFromAdmission: true,
         attendanceWithinClassPeriods: true,
+        attendanceRequiresAllFilters: true,
         enrollmentCheckScopedToSchool: false,
         promotionChoosesOrgUnit: false,
         promotionSkipsExistingYear: true,
+        reEnrollByCarryForward: false,
     },
     staff: {
         key: "staff",
         enrollFromAdmission: false,
         attendanceWithinClassPeriods: false,
+        attendanceRequiresAllFilters: false,
         enrollmentCheckScopedToSchool: true,
         promotionChoosesOrgUnit: true,
         promotionSkipsExistingYear: false,
+        reEnrollByCarryForward: true,
     },
 }
 

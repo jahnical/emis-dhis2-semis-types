@@ -59,8 +59,14 @@ const transferSchema = z.object({
 });
 
 const finalResultSchema = z.object({
-    programStage: z.string(),
-    status: z.string()
+    // Optional for staff: carry-forward works without a status stage
+    programStage: z.string().optional(),
+    status: z.string().optional(),
+    // Statuses that allow re-enrollment / that mark an exit
+    validStatusValue: z.array(z.string()).optional(),
+    dropoutStatusValues: z.array(z.string()).optional(),
+    // Registration data elements that can be changed per staff member when carrying forward
+    adjustableFields: z.array(z.string()).optional()
 });
 
 const performanceSchema = z.object({
