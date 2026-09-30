@@ -10,7 +10,8 @@ export interface SectionProfile {
     attendanceWithinClassPeriods: boolean
     // Attendance waits for every filter (e.g. grade and class) before listing anyone
     attendanceRequiresAllFilters: boolean
-    // An enrollment in the same academic year only counts if it is at the selected school
+    // An enrollment in the same academic year only counts if it is at the selected school.
+    // Both sections allow one enrollment per academic year across all schools, so this is off.
     enrollmentCheckScopedToSchool: boolean
     // Promotion / re-enrollment lets the user pick the destination organisation unit
     promotionChoosesOrgUnit: boolean
@@ -37,9 +38,9 @@ export const sectionProfiles: Record<SectionType, SectionProfile> = {
         enrollFromAdmission: false,
         attendanceWithinClassPeriods: false,
         attendanceRequiresAllFilters: false,
-        enrollmentCheckScopedToSchool: true,
+        enrollmentCheckScopedToSchool: false,
         promotionChoosesOrgUnit: true,
-        promotionSkipsExistingYear: false,
+        promotionSkipsExistingYear: true,
         reEnrollByCarryForward: true,
     },
 }
